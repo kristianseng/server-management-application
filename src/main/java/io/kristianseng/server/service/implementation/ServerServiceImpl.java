@@ -6,6 +6,7 @@ import io.kristianseng.server.repo.ServerRepo;
 import io.kristianseng.server.service.ServerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -27,6 +28,7 @@ public class ServerServiceImpl implements ServerService {
     private final ServerRepo serverRepo;
     @Override
     public Server create(Server server) {
+        
         log.info("Saving new server: {}", server.getName());
         server.setImageUrl(setServerImageUrl());
         return serverRepo.save(server);
